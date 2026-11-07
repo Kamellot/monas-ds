@@ -150,4 +150,3 @@ accessibility:
     trapFocus: false
     restoreFocusOnClose: false
     notes: Uses `:focus-visible` ring tokens; skipped in tab order when disabled.
-
