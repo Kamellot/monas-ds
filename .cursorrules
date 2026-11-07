@@ -67,3 +67,4 @@ When creating or modifying components:
 - Run type checks (`tsc --noEmit`), linting (`eslint`), and formatting (`prettier`) on all affected packages.
 - Ensure package boundary integrity: do not import private internals across package boundaries.
 - Keep commits focused, conventional, and atomic.
+
