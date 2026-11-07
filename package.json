@@ -11,9 +11,14 @@
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
     "@monas/config": "workspace:*",
     "eslint": "^9.39.1",
     "prettier": "^3.8.1",

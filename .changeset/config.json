@@ -1,0 +1,18 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@4.0.1/schema.json",
+  "baseBranch": "main",
+  "access": "public",
+  "format": "auto",
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "Kamellot/monas-ds"
+    }
+  ],
+  "commit": false,
+  "ignore": ["@monas/config", "@monas/playground"],
+  "fixed": [],
+  "linked": [],
+  "updateInternalDependencies": "patch"
+}
+
