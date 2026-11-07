@@ -8,12 +8,12 @@ Monas structures all design tokens according to the [W3C Design Tokens Community
 
 Every token node or group adheres strictly to the DTCG reserved `$`-prefixed keys:
 
-| Property | Required | Description |
-| :--- | :--- | :--- |
-| `$value` | **Yes** (leaf nodes) | Raw primitive value, composite object, or alias reference (`"{group.token}"`). |
-| `$type` | **Yes** (node or inherited from parent group) | Token classification (`color`, `dimension`, `fontFamily`, `fontWeight`, `duration`, `cubicBezier`, `number`, `shadow`, `border`, `typography`, `transition`). |
-| `$description` | Optional | Human- and AI-readable intent of the token. |
-| `$extensions` | Optional | Vendor-scoped metadata under `"com.monas"` for cascade tiering and multi-theme conditions. |
+| Property       | Required                                      | Description                                                                                                                                                   |
+| :------------- | :-------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `$value`       | **Yes** (leaf nodes)                          | Raw primitive value, composite object, or alias reference (`"{group.token}"`).                                                                                |
+| `$type`        | **Yes** (node or inherited from parent group) | Token classification (`color`, `dimension`, `fontFamily`, `fontWeight`, `duration`, `cubicBezier`, `number`, `shadow`, `border`, `typography`, `transition`). |
+| `$description` | Optional                                      | Human- and AI-readable intent of the token.                                                                                                                   |
+| `$extensions`  | Optional                                      | Vendor-scoped metadata under `"com.monas"` for cascade tiering and multi-theme conditions.                                                                    |
 
 ---
 
@@ -27,6 +27,7 @@ Monas enforces a strict 3-tier token hierarchy to guarantee theme isolation and 
 ```
 
 ### Tier 1: Primitive Tokens (`primitive`)
+
 Raw, context-agnostic values (palettes, spacing scales, typography scales, radii). Primitive tokens **never** reference other tokens and **never** change across themes.
 
 ```json
@@ -56,6 +57,7 @@ Raw, context-agnostic values (palettes, spacing scales, typography scales, radii
 ```
 
 ### Tier 2: Semantic Tokens (`semantic`)
+
 Role-based tokens mapped to primitives using DTCG `{group.token}` alias syntax. Multi-theme variants (`_dark`, `_ocean`, etc.) are declared in `$extensions["com.monas"].conditions` and compile to PandaCSS `semanticTokens` driven by `[data-theme="<theme>"] &` selectors.
 
 ```json
@@ -109,6 +111,7 @@ Role-based tokens mapped to primitives using DTCG `{group.token}` alias syntax. 
 ```
 
 ### Tier 3: Component Tokens (`component`)
+
 Scoped exclusively to individual components and mapped to Tier 2 semantic tokens. Component recipes consume Tier 3 tokens so consumers can re-theme a single component (e.g., `button.background.default`) without mutating global semantic tokens.
 
 ```json
@@ -140,4 +143,3 @@ Scoped exclusively to individual components and mapped to Tier 2 semantic tokens
 - **File Extension**: All token source files must use the `.tokens.json` suffix and include `"$schema"` pointing to `dtcg.schema.json`.
 - **Group Naming**: Use `camelCase` for group keys (`fontSizes`, `lineHeights`, `borderWidths`), `DEFAULT` for base semantic scales, and numeric or `kebab-case` keys for scale steps (`50`–`950`, `sm`, `md`, `lg`).
 - **No Circular Aliases**: Tier 3 references Tier 2; Tier 2 references Tier 1. Upward or circular references are forbidden.
-

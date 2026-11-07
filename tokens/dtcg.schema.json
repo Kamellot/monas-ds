@@ -134,10 +134,7 @@
       },
       "patternProperties": {
         "^[^$][a-zA-Z0-9_-]*$": {
-          "oneOf": [
-            { "$ref": "#/$defs/tokenNode" },
-            { "$ref": "#/$defs/tokenGroup" }
-          ]
+          "oneOf": [{ "$ref": "#/$defs/tokenNode" }, { "$ref": "#/$defs/tokenGroup" }]
         }
       },
       "additionalProperties": false
@@ -145,4 +142,3 @@
   },
   "$ref": "#/$defs/tokenGroup"
 }
-
