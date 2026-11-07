@@ -2,6 +2,7 @@ import { definePreset } from "@pandacss/dev";
 import type { Preset } from "@pandacss/dev";
 import { breakpoints } from "./breakpoints.js";
 import { conditions } from "./conditions.js";
+import { tokens } from "./tokens/index.js";
 
 export function createMonasPreset(): Preset {
   return definePreset({
@@ -9,12 +10,17 @@ export function createMonasPreset(): Preset {
     conditions,
     theme: {
       extend: {
-        breakpoints
+        breakpoints,
+        tokens
       }
     }
   });
 }
 
 export const monasPreset: Preset = createMonasPreset();
+
+export { breakpoints } from "./breakpoints.js";
+export { conditions } from "./conditions.js";
+export * from "./tokens/index.js";
 
 export default monasPreset;
