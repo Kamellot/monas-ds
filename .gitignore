@@ -1,0 +1,15 @@
+node_modules
+.pnpm-store
+dist
+.next
+storybook-static
+styled-system
+.turbo
+coverage
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea
+.vscode
