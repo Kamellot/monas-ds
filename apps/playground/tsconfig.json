@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@monas/config/tsconfig.react.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "paths": {
+      "@monas/preset": ["../../packages/preset/src/index.ts"],
+      "@monas/react": ["../../packages/react/src/index.ts"]
+    }
+  },
+  "include": ["src", "vite.config.ts"]
+}
+
