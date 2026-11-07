@@ -1,0 +1,13 @@
+.motion-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #2563eb;
+  transition-property: transform;
+  transition-timing-function: ease;
+}
+
+.motion-row:hover .motion-dot {
+  transform: translateX(480px);
+}
+
