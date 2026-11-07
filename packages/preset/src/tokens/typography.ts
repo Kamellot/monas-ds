@@ -55,4 +55,3 @@ export const letterSpacings = defineTokens.letterSpacings({
   wider: { value: "0.05em", description: "Wide uppercase tracking" },
   widest: { value: "0.1em", description: "Maximum overline tracking" }
 });
-

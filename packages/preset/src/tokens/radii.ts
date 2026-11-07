@@ -19,4 +19,3 @@ export const borderWidths = defineTokens.borderWidths({
   4: { value: "4px", description: "4px heavy border width" },
   8: { value: "8px", description: "8px structural border width" }
 });
-

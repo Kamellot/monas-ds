@@ -58,4 +58,3 @@ export const sizes = defineTokens.sizes({
   max: { value: "max-content", description: "Intrinsic max-content size" },
   fit: { value: "fit-content", description: "Intrinsic fit-content size" }
 });
-

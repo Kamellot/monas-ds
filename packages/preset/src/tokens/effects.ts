@@ -83,4 +83,3 @@ export const opacity = defineTokens.opacity({
   95: { value: "0.95", description: "95% opacity" },
   100: { value: "1", description: "100% opacity (opaque)" }
 });
-
