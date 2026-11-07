@@ -1,0 +1,338 @@
+{
+  "$schema": "./dtcg.schema.json",
+  "$description": "Monas Design System Tier 1 Primitive Tokens",
+  "$extensions": {
+    "com.monas": {
+      "tier": "primitive"
+    }
+  },
+  "colors": {
+    "$type": "color",
+    "$description": "Context-agnostic primitive color palettes",
+    "white": {
+      "$value": "#ffffff",
+      "$description": "Pure white"
+    },
+    "black": {
+      "$value": "#000000",
+      "$description": "Pure black"
+    },
+    "transparent": {
+      "$value": "transparent",
+      "$description": "Fully transparent color"
+    },
+    "current": {
+      "$value": "currentColor",
+      "$description": "Inherits the current text color"
+    },
+    "gray": {
+      "50": { "$value": "#f9fafb", "$description": "Lightest neutral gray" },
+      "100": { "$value": "#f3f4f6", "$description": "Subtle neutral gray surface" },
+      "200": { "$value": "#e5e7eb", "$description": "Light neutral gray border" },
+      "300": { "$value": "#d1d5db", "$description": "Muted neutral gray border" },
+      "400": { "$value": "#9ca3af", "$description": "Placeholder neutral gray" },
+      "500": { "$value": "#6b7280", "$description": "Mid-tone neutral gray" },
+      "600": { "$value": "#4b5563", "$description": "Secondary neutral gray text" },
+      "700": { "$value": "#374151", "$description": "Strong neutral gray text" },
+      "800": { "$value": "#1f2937", "$description": "Deep neutral gray surface" },
+      "900": { "$value": "#111827", "$description": "Darkest neutral gray" },
+      "950": { "$value": "#030712", "$description": "Near-black neutral gray" }
+    },
+    "blue": {
+      "50": { "$value": "#eff6ff", "$description": "Lightest brand blue tint" },
+      "100": { "$value": "#dbeafe", "$description": "Soft brand blue surface" },
+      "200": { "$value": "#bfdbfe", "$description": "Light brand blue border" },
+      "300": { "$value": "#93c5fd", "$description": "Muted brand blue accent" },
+      "400": { "$value": "#60a5fa", "$description": "Bright brand blue accent" },
+      "500": { "$value": "#3b82f6", "$description": "Vibrant brand blue" },
+      "600": { "$value": "#2563eb", "$description": "Core brand blue" },
+      "700": { "$value": "#1d4ed8", "$description": "Deep brand blue" },
+      "800": { "$value": "#1e40af", "$description": "Dark brand blue" },
+      "900": { "$value": "#1e3a8a", "$description": "Darkest brand blue" },
+      "950": { "$value": "#172554", "$description": "Near-black brand blue" }
+    },
+    "cyan": {
+      "50": { "$value": "#ecfeff", "$description": "Lightest ocean cyan tint" },
+      "100": { "$value": "#cffafe", "$description": "Soft ocean cyan surface" },
+      "200": { "$value": "#a5f3fc", "$description": "Light ocean cyan border" },
+      "300": { "$value": "#67e8f9", "$description": "Muted ocean cyan accent" },
+      "400": { "$value": "#22d3ee", "$description": "Bright ocean cyan accent" },
+      "500": { "$value": "#06b6d4", "$description": "Vibrant ocean cyan" },
+      "600": { "$value": "#0891b2", "$description": "Core ocean cyan" },
+      "700": { "$value": "#0e7490", "$description": "Deep ocean cyan" },
+      "800": { "$value": "#155e75", "$description": "Dark ocean cyan" },
+      "900": { "$value": "#164e63", "$description": "Darkest ocean cyan" },
+      "950": { "$value": "#083344", "$description": "Near-black ocean cyan" }
+    },
+    "green": {
+      "50": { "$value": "#f0fdf4", "$description": "Lightest green tint" },
+      "100": { "$value": "#dcfce7", "$description": "Soft green surface" },
+      "200": { "$value": "#bbf7d0", "$description": "Light green border" },
+      "300": { "$value": "#86efac", "$description": "Muted green accent" },
+      "400": { "$value": "#4ade80", "$description": "Bright green accent" },
+      "500": { "$value": "#22c55e", "$description": "Vibrant green" },
+      "600": { "$value": "#16a34a", "$description": "Core green" },
+      "700": { "$value": "#15803d", "$description": "Deep green" },
+      "800": { "$value": "#166534", "$description": "Dark green" },
+      "900": { "$value": "#14532d", "$description": "Darkest green" },
+      "950": { "$value": "#052e16", "$description": "Near-black green" }
+    },
+    "amber": {
+      "50": { "$value": "#fffbeb", "$description": "Lightest amber tint" },
+      "100": { "$value": "#fef3c7", "$description": "Soft amber surface" },
+      "200": { "$value": "#fde68a", "$description": "Light amber border" },
+      "300": { "$value": "#fcd34d", "$description": "Muted amber accent" },
+      "400": { "$value": "#fbbf24", "$description": "Bright amber accent" },
+      "500": { "$value": "#f59e0b", "$description": "Vibrant amber" },
+      "600": { "$value": "#d97706", "$description": "Core amber" },
+      "700": { "$value": "#b45309", "$description": "Deep amber" },
+      "800": { "$value": "#92400e", "$description": "Dark amber" },
+      "900": { "$value": "#78350f", "$description": "Darkest amber" },
+      "950": { "$value": "#451a03", "$description": "Near-black amber" }
+    },
+    "red": {
+      "50": { "$value": "#fef2f2", "$description": "Lightest red tint" },
+      "100": { "$value": "#fee2e2", "$description": "Soft red surface" },
+      "200": { "$value": "#fecaca", "$description": "Light red border" },
+      "300": { "$value": "#fca5a5", "$description": "Muted red accent" },
+      "400": { "$value": "#f87171", "$description": "Bright red accent" },
+      "500": { "$value": "#ef4444", "$description": "Vibrant red" },
+      "600": { "$value": "#dc2626", "$description": "Core red" },
+      "700": { "$value": "#b91c1c", "$description": "Deep red" },
+      "800": { "$value": "#991b1b", "$description": "Dark red" },
+      "900": { "$value": "#7f1d1d", "$description": "Darkest red" },
+      "950": { "$value": "#450a0a", "$description": "Near-black red" }
+    }
+  },
+  "fonts": {
+    "$type": "fontFamily",
+    "$description": "Primitive font family stacks",
+    "heading": {
+      "$value": "\"General Sans\", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "$description": "Heading font stack based on General Sans"
+    },
+    "body": {
+      "$value": "\"General Sans\", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+      "$description": "Body and UI font stack based on General Sans"
+    },
+    "code": {
+      "$value": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+      "$description": "Code and tabular monospace font stack"
+    }
+  },
+  "fontSizes": {
+    "$type": "dimension",
+    "$description": "Modular typographic font size scale",
+    "xs": { "$value": "0.75rem", "$description": "12px extra-small font size" },
+    "sm": { "$value": "0.875rem", "$description": "14px small font size" },
+    "md": { "$value": "1rem", "$description": "16px base body font size" },
+    "lg": { "$value": "1.125rem", "$description": "18px large font size" },
+    "xl": { "$value": "1.25rem", "$description": "20px extra-large font size" },
+    "2xl": { "$value": "1.5rem", "$description": "24px heading font size" },
+    "3xl": { "$value": "1.875rem", "$description": "30px display heading font size" },
+    "4xl": { "$value": "2.25rem", "$description": "36px hero heading font size" },
+    "5xl": { "$value": "3rem", "$description": "48px display hero font size" }
+  },
+  "fontWeights": {
+    "$type": "fontWeight",
+    "$description": "Typographic weight scale",
+    "light": { "$value": "300", "$description": "Light font weight" },
+    "normal": { "$value": "400", "$description": "Regular body font weight" },
+    "medium": { "$value": "500", "$description": "Medium UI label font weight" },
+    "semibold": { "$value": "600", "$description": "Semibold subheading font weight" },
+    "bold": { "$value": "700", "$description": "Bold heading font weight" }
+  },
+  "lineHeights": {
+    "$type": "number",
+    "$description": "Unitless typographic line-height scale",
+    "none": { "$value": "1", "$description": "Single-line tight leading" },
+    "tight": { "$value": "1.25", "$description": "Compact heading leading" },
+    "snug": { "$value": "1.375", "$description": "Subheading leading" },
+    "normal": { "$value": "1.5", "$description": "Standard body leading" },
+    "relaxed": { "$value": "1.625", "$description": "Long-form reading leading" },
+    "loose": { "$value": "2", "$description": "Spacious leading" }
+  },
+  "letterSpacings": {
+    "$type": "dimension",
+    "$description": "Typographic tracking scale",
+    "tighter": { "$value": "-0.05em", "$description": "Extra-tight display tracking" },
+    "tight": { "$value": "-0.025em", "$description": "Tight heading tracking" },
+    "normal": { "$value": "0em", "$description": "Default neutral tracking" },
+    "wide": { "$value": "0.025em", "$description": "Slightly wide tracking" },
+    "wider": { "$value": "0.05em", "$description": "Wide uppercase tracking" },
+    "widest": { "$value": "0.1em", "$description": "Maximum overline tracking" }
+  },
+  "spacing": {
+    "$type": "dimension",
+    "$description": "4px-based (0.25rem) spatial scale",
+    "0": { "$value": "0rem", "$description": "0px zero spacing" },
+    "px": { "$value": "1px", "$description": "1px hairline spacing" },
+    "1": { "$value": "0.25rem", "$description": "4px spacing step" },
+    "2": { "$value": "0.5rem", "$description": "8px spacing step" },
+    "3": { "$value": "0.75rem", "$description": "12px spacing step" },
+    "4": { "$value": "1rem", "$description": "16px spacing step" },
+    "5": { "$value": "1.25rem", "$description": "20px spacing step" },
+    "6": { "$value": "1.5rem", "$description": "24px spacing step" },
+    "8": { "$value": "2rem", "$description": "32px spacing step" },
+    "10": { "$value": "2.5rem", "$description": "40px spacing step" },
+    "12": { "$value": "3rem", "$description": "48px spacing step" },
+    "16": { "$value": "4rem", "$description": "64px spacing step" },
+    "20": { "$value": "5rem", "$description": "80px spacing step" },
+    "24": { "$value": "6rem", "$description": "96px spacing step" },
+    "32": { "$value": "8rem", "$description": "128px spacing step" },
+    "40": { "$value": "10rem", "$description": "160px spacing step" },
+    "48": { "$value": "12rem", "$description": "192px spacing step" },
+    "56": { "$value": "14rem", "$description": "224px spacing step" },
+    "64": { "$value": "16rem", "$description": "256px spacing step" }
+  },
+  "sizes": {
+    "$type": "dimension",
+    "$description": "Element width and height sizing scale",
+    "0": { "$value": "0rem", "$description": "0px size" },
+    "px": { "$value": "1px", "$description": "1px size" },
+    "1": { "$value": "0.25rem", "$description": "4px size" },
+    "2": { "$value": "0.5rem", "$description": "8px size" },
+    "3": { "$value": "0.75rem", "$description": "12px size" },
+    "4": { "$value": "1rem", "$description": "16px size" },
+    "5": { "$value": "1.25rem", "$description": "20px size" },
+    "6": { "$value": "1.5rem", "$description": "24px size" },
+    "8": { "$value": "2rem", "$description": "32px size" },
+    "10": { "$value": "2.5rem", "$description": "40px size" },
+    "12": { "$value": "3rem", "$description": "48px size" },
+    "16": { "$value": "4rem", "$description": "64px size" },
+    "20": { "$value": "5rem", "$description": "80px size" },
+    "24": { "$value": "6rem", "$description": "96px size" },
+    "32": { "$value": "8rem", "$description": "128px size" },
+    "40": { "$value": "10rem", "$description": "160px size" },
+    "48": { "$value": "12rem", "$description": "192px size" },
+    "56": { "$value": "14rem", "$description": "224px size" },
+    "64": { "$value": "16rem", "$description": "256px size" },
+    "xs": { "$value": "20rem", "$description": "320px extra-small container size" },
+    "sm": { "$value": "24rem", "$description": "384px small container size" },
+    "md": { "$value": "28rem", "$description": "448px medium container size" },
+    "lg": { "$value": "32rem", "$description": "512px large container size" },
+    "xl": { "$value": "36rem", "$description": "576px extra-large container size" },
+    "2xl": { "$value": "42rem", "$description": "672px 2x-large container size" },
+    "3xl": { "$value": "48rem", "$description": "768px 3x-large container size" },
+    "4xl": { "$value": "56rem", "$description": "896px 4x-large container size" },
+    "5xl": { "$value": "64rem", "$description": "1024px 5x-large container size" },
+    "6xl": { "$value": "72rem", "$description": "1152px 6x-large container size" },
+    "7xl": { "$value": "80rem", "$description": "1280px 7x-large container size" },
+    "full": { "$value": "100%", "$description": "Full 100% size" },
+    "min": { "$value": "min-content", "$description": "Intrinsic min-content size" },
+    "max": { "$value": "max-content", "$description": "Intrinsic max-content size" },
+    "fit": { "$value": "fit-content", "$description": "Intrinsic fit-content size" }
+  },
+  "radii": {
+    "$type": "dimension",
+    "$description": "Corner border-radius scale",
+    "none": { "$value": "0rem", "$description": "Sharp square corners" },
+    "xs": { "$value": "0.125rem", "$description": "2px subtle radius" },
+    "sm": { "$value": "0.25rem", "$description": "4px small radius" },
+    "md": { "$value": "0.375rem", "$description": "6px medium radius" },
+    "lg": { "$value": "0.5rem", "$description": "8px large radius" },
+    "xl": { "$value": "0.75rem", "$description": "12px extra-large radius" },
+    "2xl": { "$value": "1rem", "$description": "16px 2x-large radius" },
+    "3xl": { "$value": "1.5rem", "$description": "24px 3x-large radius" },
+    "full": { "$value": "9999px", "$description": "Pill / circular radius" }
+  },
+  "borderWidths": {
+    "$type": "dimension",
+    "$description": "Border stroke width scale",
+    "0": { "$value": "0px", "$description": "No border width" },
+    "1": { "$value": "1px", "$description": "1px standard border width" },
+    "2": { "$value": "2px", "$description": "2px emphasized border width" },
+    "4": { "$value": "4px", "$description": "4px heavy border width" },
+    "8": { "$value": "8px", "$description": "8px structural border width" }
+  },
+  "shadows": {
+    "$type": "shadow",
+    "$description": "Elevation box-shadow scale",
+    "none": { "$value": "none", "$description": "No shadow" },
+    "xs": {
+      "$value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      "$description": "Subtle low-elevation shadow"
+    },
+    "sm": {
+      "$value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+      "$description": "Small card elevation shadow"
+    },
+    "md": {
+      "$value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+      "$description": "Medium dropdown elevation shadow"
+    },
+    "lg": {
+      "$value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+      "$description": "Large popover elevation shadow"
+    },
+    "xl": {
+      "$value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+      "$description": "Extra-large modal elevation shadow"
+    },
+    "2xl": {
+      "$value": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+      "$description": "Highest dialog elevation shadow"
+    }
+  },
+  "durations": {
+    "$type": "duration",
+    "$description": "Motion transition duration scale",
+    "fastest": { "$value": "50ms", "$description": "Instant micro-interaction duration" },
+    "faster": { "$value": "100ms", "$description": "Fast state change duration" },
+    "fast": { "$value": "150ms", "$description": "Standard control transition duration" },
+    "normal": { "$value": "200ms", "$description": "Default UI transition duration" },
+    "slow": { "$value": "300ms", "$description": "Overlay entrance duration" },
+    "slower": { "$value": "400ms", "$description": "Large layout transition duration" },
+    "slowest": { "$value": "500ms", "$description": "Elaborate choreography duration" }
+  },
+  "easings": {
+    "$type": "cubicBezier",
+    "$description": "Motion timing function scale",
+    "default": {
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "$description": "Standard smooth acceleration/deceleration curve"
+    },
+    "linear": { "$value": "linear", "$description": "Constant rate curve" },
+    "in": { "$value": "cubic-bezier(0.4, 0, 1, 1)", "$description": "Ease-in exiting curve" },
+    "out": { "$value": "cubic-bezier(0, 0, 0.2, 1)", "$description": "Ease-out entering curve" },
+    "inOut": {
+      "$value": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "$description": "Symmetrical ease-in-out curve"
+    }
+  },
+  "zIndex": {
+    "$type": "number",
+    "$description": "Stacking context z-index scale",
+    "hide": { "$value": -1, "$description": "Below base stacking context" },
+    "base": { "$value": 0, "$description": "Default base stacking level" },
+    "docked": { "$value": 10, "$description": "Docked elements level" },
+    "dropdown": { "$value": 1000, "$description": "Dropdown menu level" },
+    "sticky": { "$value": 1100, "$description": "Sticky header level" },
+    "banner": { "$value": 1200, "$description": "Top notification banner level" },
+    "overlay": { "$value": 1300, "$description": "Backdrop overlay level" },
+    "modal": { "$value": 1400, "$description": "Modal dialog level" },
+    "popover": { "$value": 1500, "$description": "Floating popover level" },
+    "toast": { "$value": 1600, "$description": "Toast notification level" },
+    "tooltip": { "$value": 1700, "$description": "Tooltip highest level" }
+  },
+  "opacity": {
+    "$type": "number",
+    "$description": "Alpha opacity scale",
+    "0": { "$value": "0", "$description": "0% opacity (invisible)" },
+    "5": { "$value": "0.05", "$description": "5% opacity" },
+    "10": { "$value": "0.1", "$description": "10% opacity" },
+    "20": { "$value": "0.2", "$description": "20% opacity" },
+    "25": { "$value": "0.25", "$description": "25% opacity" },
+    "30": { "$value": "0.3", "$description": "30% opacity" },
+    "40": { "$value": "0.4", "$description": "40% opacity" },
+    "50": { "$value": "0.5", "$description": "50% opacity" },
+    "60": { "$value": "0.6", "$description": "60% opacity" },
+    "70": { "$value": "0.7", "$description": "70% opacity" },
+    "75": { "$value": "0.75", "$description": "75% opacity" },
+    "80": { "$value": "0.8", "$description": "80% opacity" },
+    "90": { "$value": "0.9", "$description": "90% opacity" },
+    "95": { "$value": "0.95", "$description": "95% opacity" },
+    "100": { "$value": "1", "$description": "100% opacity (opaque)" }
+  }
+}
+
