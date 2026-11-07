@@ -1,0 +1,153 @@
+# ==============================================================================
+# Monas Design System – Component Contract Template
+# ==============================================================================
+# Every component in @monas/react MUST define a contract file (`<name>.contract.yaml`)
+# prior to implementation. This contract serves as the single source of truth for:
+#   1. Component API, slots, and headless primitive bindings (Radix UI)
+#   2. PandaCSS recipe architecture (cva / sva), variants, and component tokens
+#   3. WAI-ARIA accessibility roles, states, and keyboard interactions
+#   4. CLI registry dependency mapping (`monas add <component>`)
+# ==============================================================================
+
+schemaVersion: "1.0.0"
+
+# ------------------------------------------------------------------------------
+# 1. Component Metadata
+# ------------------------------------------------------------------------------
+metadata:
+  name: component-name # kebab-case identifier (used by CLI registry, e.g., "button", "modal")
+  displayName: ComponentName # PascalCase exported React symbol
+  package: "@monas/react"
+  category: primitive # primitive | form |layout | navigation | overlay | feedback | data-display
+  status: draft # draft | stable | deprecated
+  description: >
+    Concise summary of the component's purpose, behavior, and primary use case.
+
+# ------------------------------------------------------------------------------
+# 2. Dependencies (Used by CLI Registry & Package Resolution)
+# ------------------------------------------------------------------------------
+dependencies:
+  # External headless logic primitives (e.g., "@radix-ui/react-slot", "@radix-ui/react-dialog")
+  headless: []
+  # Internal Monas components or utilities required when injected via `monas add`
+  internal: []
+  # Abstract icon slots consumed via the @monas/react Icon Abstraction Engine
+  icons: []
+
+# ------------------------------------------------------------------------------
+# 3. Structural Anatomy & Slot Composition
+# ------------------------------------------------------------------------------
+anatomy:
+  # "single" for flat components (uses Panda `cva` / `defineRecipe`)
+  # "compound" for multi-part slot components (uses Panda `sva` / `defineSlotRecipe`)
+  pattern: single
+  slots:
+    root:
+      element: button # Underlying native HTML tag
+      primitive: null # Optional Radix primitive (e.g., "Dialog.Root")
+      required: true
+      description: Primary interactive container element.
+
+# ------------------------------------------------------------------------------
+# 4. Styling, Tokens & PandaCSS Recipe Contract
+# ------------------------------------------------------------------------------
+styling:
+  recipeType: cva # cva (defineRecipe) | sva (defineSlotRecipe)
+  recipeName: componentName # camelCase identifier exported from @monas/preset
+
+  # Component-scoped tokens (Tier 3) mapped to Semantic tokens (Tier 2).
+  # Must follow W3C DTCG reference syntax `{category.token}`.
+  tokens:
+    background.default: "{colors.primary.DEFAULT}"
+    background.hover: "{colors.primary.hover}"
+    text.default: "{colors.onPrimary.DEFAULT}"
+    border.default: "{colors.border.DEFAULT}"
+
+  # Variant axes compiled statically by PandaCSS
+  variants:
+    variant:
+      solid:
+        description: High-emphasis primary visual style.
+      outline:
+        description: Medium-emphasis bordered visual style.
+      ghost:
+        description: Low-emphasis transparent visual style.
+    size:
+      sm:
+        description: Compact sizing for dense UI contexts.
+      md:
+        description: Default standard sizing.
+      lg:
+        description: Prominent sizing for hero or touch targets.
+
+  compoundVariants: []
+
+  defaultVariants:
+    variant: solid
+    size: md
+
+# ------------------------------------------------------------------------------
+# 5. Component Props API
+# ------------------------------------------------------------------------------
+props:
+  # Base TypeScript interface extended by the root component
+  extends: "React.ComponentPropsWithoutRef<'button'>"
+  # Supports polymorphic rendering via Radix Slot (`asChild` pattern)
+  asChild: true
+  custom:
+    variant:
+      type: "'solid' | 'outline' | 'ghost'"
+      required: false
+      default: "'solid'"
+      description: Visual style appearance of the component.
+    size:
+      type: "'sm' | 'md' | 'lg'"
+      required: false
+      default: "'md'"
+      description: Controls padding, height, font-size, and icon scale.
+    disabled:
+      type: boolean
+      required: false
+      default: false
+      description: Disables interaction and applies disabled styling/ARIA state.
+
+# ------------------------------------------------------------------------------
+# 6. Interactive States & Data Attributes
+# ------------------------------------------------------------------------------
+states:
+  interactive:
+    - hover
+    - focus-visible
+    - active
+    - disabled
+  dataAttributes:
+    data-state:
+      values: ["open", "closed", "active", "inactive"]
+      description: Reflects headless state machine status for CSS targeting.
+    data-disabled:
+      values: ["true", "undefined"]
+      description: Present when the component or parent group is disabled.
+
+# ------------------------------------------------------------------------------
+# 7. Accessibility (WAI-ARIA & Keyboard Contract)
+# ------------------------------------------------------------------------------
+accessibility:
+  w3cPattern: "https://www.w3.org/WAI/ARIA/apg/patterns/button/"
+  role: button
+  ariaAttributes:
+    - name: aria-disabled
+      description: Set when disabled and rendered as a non-native button element via `asChild`.
+    - name: aria-busy
+      description: Indicates an asynchronous or loading operation in progress.
+  keyboard:
+    - key: Enter
+      action: Activates the component.
+    - key: Space
+      action: Activates the component.
+  focusManagement:
+    focusable: true
+    rovingTabIndex: false
+    trapFocus: false
+    restoreFocusOnClose: false
+    notes: Uses `:focus-visible` ring tokens; skipped in tab order when disabled.
+
