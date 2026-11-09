@@ -9,19 +9,21 @@ import {
   fontWeights,
   letterSpacings,
   lineHeights,
+  oceanColors,
   opacity,
   radii,
+  semanticColors,
   shadows,
   sizes,
   spacing,
   zIndex
 } from "@monas/preset";
-import { flatten } from "./flatten";
-import type { TokenEntry } from "./flatten";
+import { flatten, flattenSemantic, resolveColorAlias } from "./flatten";
+import type { SemanticTokenEntry, TokenEntry } from "./flatten";
 
 const ui = {
-  muted: "#6b7280",
-  border: "#e5e7eb",
+  muted: "var(--colors-text-muted)",
+  border: "var(--colors-border)",
   mono: "ui-monospace, SFMono-Regular, Menlo, monospace"
 };
 
@@ -171,7 +173,16 @@ function LineHeights() {
       <Rows
         tokens={tokens}
         render={(token) => (
-          <p style={{ margin: 0, maxWidth: 480, lineHeight: token.value, background: "#eff6ff" }}>
+          <p
+            style={{
+              margin: 0,
+              maxWidth: 480,
+              lineHeight: token.value,
+              background: "var(--colors-primary-subtle)",
+              padding: "4px 8px",
+              borderRadius: 4
+            }}
+          >
             Design tokens are the single source of truth for every visual decision. Line height
             controls the vertical rhythm of multi-line text.
           </p>
@@ -207,7 +218,7 @@ function Bars({ title, group }: { title: string; group: object }) {
               width: token.value,
               maxWidth: "100%",
               height: 16,
-              background: "#2563eb",
+              background: "var(--colors-primary)",
               borderRadius: 2
             }}
           />
@@ -228,8 +239,8 @@ function Radii() {
             style={{
               width: 96,
               height: 56,
-              background: "#dbeafe",
-              border: "1px solid #2563eb",
+              background: "var(--colors-primary-subtle)",
+              border: "1px solid var(--colors-primary)",
               borderRadius: token.value
             }}
           />
@@ -251,7 +262,7 @@ function BorderWidths() {
               width: 96,
               height: 56,
               borderRadius: 6,
-              border: `${token.value} solid #111827`
+              border: `${token.value} solid var(--colors-text)`
             }}
           />
         )}
@@ -272,7 +283,8 @@ function Shadows() {
               width: 120,
               height: 64,
               borderRadius: 8,
-              background: "#fff",
+              background: "var(--colors-bg-surface)",
+              border: "1px solid var(--colors-border)",
               boxShadow: token.value
             }}
           />
@@ -291,7 +303,7 @@ function Durations() {
         {tokens.map((token) => (
           <div key={token.name} className="motion-row" style={row}>
             <Label token={token} />
-            <div style={{ background: "#f3f4f6", borderRadius: 999, height: 16 }}>
+            <div style={{ background: "var(--colors-bg-subtle)", borderRadius: 999, height: 16 }}>
               <div className="motion-dot" style={{ transitionDuration: token.value }} />
             </div>
           </div>
@@ -312,7 +324,7 @@ function Easings() {
         {tokens.map((token) => (
           <div key={token.name} className="motion-row" style={row}>
             <Label token={token} />
-            <div style={{ background: "#f3f4f6", borderRadius: 999, height: 16 }}>
+            <div style={{ background: "var(--colors-bg-subtle)", borderRadius: 999, height: 16 }}>
               <div
                 className="motion-dot"
                 style={{ transitionDuration: "500ms", transitionTimingFunction: token.value }}
@@ -342,8 +354,8 @@ function ZIndex() {
               padding: 8,
               boxSizing: "border-box",
               borderRadius: 6,
-              background: "#fff",
-              border: "1px solid #111827",
+              background: "var(--colors-bg-surface)",
+              border: "1px solid var(--colors-border-strong)",
               fontFamily: ui.mono,
               fontSize: 11,
               zIndex: Number(token.value)
@@ -369,7 +381,7 @@ function Opacity() {
               width: 160,
               height: 32,
               borderRadius: 6,
-              background: "#2563eb",
+              background: "var(--colors-primary)",
               opacity: Number(token.value)
             }}
           />
@@ -379,9 +391,192 @@ function Opacity() {
   );
 }
 
+function SemanticSwatch({ alias, resolved }: { alias: string; resolved: string }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      <div
+        style={{
+          width: 28,
+          height: 28,
+          borderRadius: 6,
+          background: resolved,
+          border: `1px solid ${ui.border}`,
+          flexShrink: 0
+        }}
+      />
+      <div style={{ fontFamily: ui.mono, fontSize: 11 }}>
+        <div>{alias}</div>
+        <div style={{ color: ui.muted, fontSize: 10 }}>{resolved}</div>
+      </div>
+    </div>
+  );
+}
+
+function SemanticColorTable({ title, group }: { title: string; group: object }) {
+  const entries: SemanticTokenEntry[] = flattenSemantic(group);
+  const primitiveColors = flatten(colors);
+  return (
+    <Section title={title} count={entries.length}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "220px 1fr 1fr",
+          gap: 12,
+          padding: "8px 0",
+          borderBottom: `2px solid ${ui.border}`,
+          fontFamily: ui.mono,
+          fontSize: 12,
+          fontWeight: 600
+        }}
+      >
+        <div>Token</div>
+        <div>_light (base)</div>
+        <div>_dark</div>
+      </div>
+      {entries.map((entry) => (
+        <div
+          key={entry.name}
+          title={entry.description}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "220px 1fr 1fr",
+            alignItems: "center",
+            gap: 12,
+            padding: "10px 0",
+            borderBottom: `1px solid ${ui.border}`
+          }}
+        >
+          <div style={{ fontFamily: ui.mono, fontSize: 12 }}>
+            <div>colors.{entry.name}</div>
+            <div style={{ color: ui.muted, fontSize: 11 }}>{entry.description}</div>
+          </div>
+          <SemanticSwatch
+            alias={entry.conditions._light}
+            resolved={resolveColorAlias(entry.conditions._light, primitiveColors)}
+          />
+          <SemanticSwatch
+            alias={entry.conditions._dark}
+            resolved={resolveColorAlias(entry.conditions._dark, primitiveColors)}
+          />
+        </div>
+      ))}
+    </Section>
+  );
+}
+
+const SCOPED_PREVIEWS = [
+  { label: "Default Light", theme: "default", mode: "light" },
+  { label: "Default Dark", theme: "default", mode: "dark" },
+  { label: "Ocean Light", theme: "ocean", mode: "light" },
+  { label: "Ocean Dark", theme: "ocean", mode: "dark" }
+] as const;
+
+function ThemeScopingPreview() {
+  return (
+    <Section title="Multi-Theme & Mode Nested Scoping" count={SCOPED_PREVIEWS.length}>
+      <p style={{ margin: "0 0 16px", color: ui.muted, fontSize: 14 }}>
+        Each card scopes semantic tokens locally via <code>data-theme</code> and{" "}
+        <code>data-mode</code>, independent of the active global theme and mode.
+      </p>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+          gap: 16
+        }}
+      >
+        {SCOPED_PREVIEWS.map(({ label, theme, mode }) => (
+          <div
+            key={label}
+            data-theme={theme}
+            data-mode={mode}
+            style={{
+              background: "var(--colors-bg-surface)",
+              color: "var(--colors-text)",
+              border: "1px solid var(--colors-border)",
+              borderRadius: 12,
+              padding: 20
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: 8,
+                marginBottom: 12
+              }}
+            >
+              <strong style={{ fontSize: 15 }}>{label}</strong>
+              <code
+                style={{
+                  fontFamily: ui.mono,
+                  fontSize: 10,
+                  padding: "2px 8px",
+                  borderRadius: 999,
+                  background: "var(--colors-bg-subtle)",
+                  color: "var(--colors-text-muted)"
+                }}
+              >
+                {theme} / {mode}
+              </code>
+            </div>
+            <p style={{ margin: "0 0 16px", fontSize: 13, color: "var(--colors-text-muted)" }}>
+              Surface, text, border, and interactive roles resolve automatically within this
+              subtree.
+            </p>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <span
+                style={{
+                  padding: "6px 12px",
+                  borderRadius: 6,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  background: "var(--colors-primary)",
+                  color: "var(--colors-on-primary)"
+                }}
+              >
+                Primary
+              </span>
+              <span
+                style={{
+                  padding: "6px 12px",
+                  borderRadius: 6,
+                  fontSize: 12,
+                  fontWeight: 500,
+                  background: "var(--colors-secondary)",
+                  color: "var(--colors-on-secondary)",
+                  border: "1px solid var(--colors-border-strong)"
+                }}
+              >
+                Secondary
+              </span>
+              <span
+                style={{
+                  padding: "6px 12px",
+                  borderRadius: 6,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  background: "var(--colors-danger)",
+                  color: "var(--colors-on-danger)"
+                }}
+              >
+                Danger
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 export function TokenPreviews() {
   return (
     <>
+      <ThemeScopingPreview />
+      <SemanticColorTable title="semanticTokens.colors (Base Light/Dark)" group={semanticColors} />
+      <SemanticColorTable title="oceanTheme.colors (Optional CLI Theme)" group={oceanColors} />
       <Colors />
       <Fonts />
       <FontSizes />
