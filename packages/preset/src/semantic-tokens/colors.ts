@@ -6,8 +6,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.50}",
         _light: "{colors.gray.50}",
-        _dark: "{colors.gray.950}",
-        _ocean: "{colors.cyan.950}"
+        _dark: "{colors.gray.950}"
       },
       description: "Default page canvas background surface"
     },
@@ -15,8 +14,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.white}",
         _light: "{colors.white}",
-        _dark: "{colors.gray.900}",
-        _ocean: "{colors.cyan.900}"
+        _dark: "{colors.gray.900}"
       },
       description: "Elevated card and container surface"
     },
@@ -24,8 +22,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.100}",
         _light: "{colors.gray.100}",
-        _dark: "{colors.gray.800}",
-        _ocean: "{colors.cyan.800}"
+        _dark: "{colors.gray.800}"
       },
       description: "Subtle secondary container background"
     },
@@ -33,8 +30,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.200}",
         _light: "{colors.gray.200}",
-        _dark: "{colors.gray.700}",
-        _ocean: "{colors.cyan.700}"
+        _dark: "{colors.gray.700}"
       },
       description: "Muted interactive or well surface"
     },
@@ -42,8 +38,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.900}",
         _light: "{colors.gray.900}",
-        _dark: "{colors.gray.50}",
-        _ocean: "{colors.cyan.50}"
+        _dark: "{colors.gray.50}"
       },
       description: "High-contrast inverse surface"
     }
@@ -53,8 +48,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.900}",
         _light: "{colors.gray.900}",
-        _dark: "{colors.gray.50}",
-        _ocean: "{colors.cyan.50}"
+        _dark: "{colors.gray.50}"
       },
       description: "Primary body and heading text color"
     },
@@ -62,8 +56,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.600}",
         _light: "{colors.gray.600}",
-        _dark: "{colors.gray.400}",
-        _ocean: "{colors.cyan.200}"
+        _dark: "{colors.gray.400}"
       },
       description: "Secondary supporting text color"
     },
@@ -71,8 +64,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.400}",
         _light: "{colors.gray.400}",
-        _dark: "{colors.gray.500}",
-        _ocean: "{colors.cyan.400}"
+        _dark: "{colors.gray.500}"
       },
       description: "Placeholder and de-emphasized text color"
     },
@@ -80,8 +72,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.white}",
         _light: "{colors.white}",
-        _dark: "{colors.gray.900}",
-        _ocean: "{colors.cyan.950}"
+        _dark: "{colors.gray.900}"
       },
       description: "Foreground text on inverse surfaces"
     }
@@ -91,8 +82,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.blue.600}",
         _light: "{colors.blue.600}",
-        _dark: "{colors.blue.500}",
-        _ocean: "{colors.cyan.500}"
+        _dark: "{colors.blue.500}"
       },
       description: "Default primary brand interactive color"
     },
@@ -100,8 +90,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.blue.700}",
         _light: "{colors.blue.700}",
-        _dark: "{colors.blue.400}",
-        _ocean: "{colors.cyan.400}"
+        _dark: "{colors.blue.400}"
       },
       description: "Hovered primary brand interactive color"
     },
@@ -109,8 +98,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.blue.800}",
         _light: "{colors.blue.800}",
-        _dark: "{colors.blue.600}",
-        _ocean: "{colors.cyan.600}"
+        _dark: "{colors.blue.600}"
       },
       description: "Pressed primary brand interactive color"
     },
@@ -118,8 +106,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.blue.50}",
         _light: "{colors.blue.50}",
-        _dark: "{colors.blue.950}",
-        _ocean: "{colors.cyan.900}"
+        _dark: "{colors.blue.950}"
       },
       description: "Soft primary brand tint surface"
     }
@@ -129,8 +116,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.white}",
         _light: "{colors.white}",
-        _dark: "{colors.white}",
-        _ocean: "{colors.cyan.950}"
+        _dark: "{colors.white}"
       },
       description: "Default text and icon color on primary backgrounds"
     }
@@ -140,8 +126,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.100}",
         _light: "{colors.gray.100}",
-        _dark: "{colors.gray.800}",
-        _ocean: "{colors.cyan.800}"
+        _dark: "{colors.gray.800}"
       },
       description: "Default secondary interactive surface"
     },
@@ -149,8 +134,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.200}",
         _light: "{colors.gray.200}",
-        _dark: "{colors.gray.700}",
-        _ocean: "{colors.cyan.700}"
+        _dark: "{colors.gray.700}"
       },
       description: "Hovered secondary interactive surface"
     },
@@ -158,8 +142,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.300}",
         _light: "{colors.gray.300}",
-        _dark: "{colors.gray.600}",
-        _ocean: "{colors.cyan.600}"
+        _dark: "{colors.gray.600}"
       },
       description: "Pressed secondary interactive surface"
     }
@@ -169,8 +152,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.900}",
         _light: "{colors.gray.900}",
-        _dark: "{colors.gray.50}",
-        _ocean: "{colors.cyan.50}"
+        _dark: "{colors.gray.50}"
       },
       description: "Default text and icon color on secondary backgrounds"
     }
@@ -180,8 +162,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.200}",
         _light: "{colors.gray.200}",
-        _dark: "{colors.gray.800}",
-        _ocean: "{colors.cyan.800}"
+        _dark: "{colors.gray.800}"
       },
       description: "Default container and control border color"
     },
@@ -189,8 +170,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.100}",
         _light: "{colors.gray.100}",
-        _dark: "{colors.gray.900}",
-        _ocean: "{colors.cyan.900}"
+        _dark: "{colors.gray.900}"
       },
       description: "Subtle divider border color"
     },
@@ -198,8 +178,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.gray.300}",
         _light: "{colors.gray.300}",
-        _dark: "{colors.gray.700}",
-        _ocean: "{colors.cyan.700}"
+        _dark: "{colors.gray.700}"
       },
       description: "Emphasized input and interactive border color"
     },
@@ -207,8 +186,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.blue.600}",
         _light: "{colors.blue.600}",
-        _dark: "{colors.blue.400}",
-        _ocean: "{colors.cyan.400}"
+        _dark: "{colors.blue.400}"
       },
       description: "Keyboard focus ring indicator color"
     }
@@ -218,8 +196,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.green.600}",
         _light: "{colors.green.600}",
-        _dark: "{colors.green.500}",
-        _ocean: "{colors.green.400}"
+        _dark: "{colors.green.500}"
       },
       description: "Primary success status color"
     },
@@ -227,8 +204,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.green.50}",
         _light: "{colors.green.50}",
-        _dark: "{colors.green.950}",
-        _ocean: "{colors.green.950}"
+        _dark: "{colors.green.950}"
       },
       description: "Subtle success alert surface"
     },
@@ -236,8 +212,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.green.700}",
         _light: "{colors.green.700}",
-        _dark: "{colors.green.300}",
-        _ocean: "{colors.green.300}"
+        _dark: "{colors.green.300}"
       },
       description: "Success status foreground text"
     },
@@ -245,8 +220,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.green.200}",
         _light: "{colors.green.200}",
-        _dark: "{colors.green.800}",
-        _ocean: "{colors.green.800}"
+        _dark: "{colors.green.800}"
       },
       description: "Success status border color"
     }
@@ -256,8 +230,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.amber.500}",
         _light: "{colors.amber.500}",
-        _dark: "{colors.amber.400}",
-        _ocean: "{colors.amber.400}"
+        _dark: "{colors.amber.400}"
       },
       description: "Primary warning status color"
     },
@@ -265,8 +238,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.amber.50}",
         _light: "{colors.amber.50}",
-        _dark: "{colors.amber.950}",
-        _ocean: "{colors.amber.950}"
+        _dark: "{colors.amber.950}"
       },
       description: "Subtle warning alert surface"
     },
@@ -274,8 +246,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.amber.800}",
         _light: "{colors.amber.800}",
-        _dark: "{colors.amber.300}",
-        _ocean: "{colors.amber.300}"
+        _dark: "{colors.amber.300}"
       },
       description: "Warning status foreground text"
     },
@@ -283,8 +254,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.amber.200}",
         _light: "{colors.amber.200}",
-        _dark: "{colors.amber.800}",
-        _ocean: "{colors.amber.800}"
+        _dark: "{colors.amber.800}"
       },
       description: "Warning status border color"
     }
@@ -294,8 +264,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.red.600}",
         _light: "{colors.red.600}",
-        _dark: "{colors.red.500}",
-        _ocean: "{colors.red.500}"
+        _dark: "{colors.red.500}"
       },
       description: "Primary danger and error color"
     },
@@ -303,8 +272,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.red.700}",
         _light: "{colors.red.700}",
-        _dark: "{colors.red.400}",
-        _ocean: "{colors.red.400}"
+        _dark: "{colors.red.400}"
       },
       description: "Hovered destructive interactive color"
     },
@@ -312,8 +280,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.red.50}",
         _light: "{colors.red.50}",
-        _dark: "{colors.red.950}",
-        _ocean: "{colors.red.950}"
+        _dark: "{colors.red.950}"
       },
       description: "Subtle danger alert surface"
     },
@@ -321,8 +288,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.red.700}",
         _light: "{colors.red.700}",
-        _dark: "{colors.red.300}",
-        _ocean: "{colors.red.300}"
+        _dark: "{colors.red.300}"
       },
       description: "Danger status foreground text"
     },
@@ -330,8 +296,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.red.200}",
         _light: "{colors.red.200}",
-        _dark: "{colors.red.800}",
-        _ocean: "{colors.red.800}"
+        _dark: "{colors.red.800}"
       },
       description: "Danger status border color"
     }
@@ -341,8 +306,7 @@ export const semanticColors = defineSemanticTokens.colors({
       value: {
         base: "{colors.white}",
         _light: "{colors.white}",
-        _dark: "{colors.white}",
-        _ocean: "{colors.white}"
+        _dark: "{colors.white}"
       },
       description: "Default text and icon color on danger backgrounds"
     }

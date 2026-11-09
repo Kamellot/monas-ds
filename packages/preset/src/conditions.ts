@@ -1,14 +1,22 @@
 import { defineConditions } from "@pandacss/dev";
 import type { Preset } from "@pandacss/dev";
 
-export const themes = ["light", "dark", "ocean"] as const;
-export type ThemeName = (typeof themes)[number];
+export const colorModes = ["light", "dark"] as const;
+export type ColorMode = (typeof colorModes)[number];
+
+export function createThemeConditions(themeName: string): Record<string, string> {
+  return {
+    [themeName]: `:where([data-theme="${themeName}"]) &, &:where([data-theme="${themeName}"])`,
+    [`${themeName}Light`]: `[data-theme="${themeName}"][data-mode="light"] &, [data-mode="light"] [data-theme="${themeName}"]:not([data-mode="dark"]) &, [data-theme="${themeName}"] [data-mode="light"]:not([data-theme]) &, &[data-theme="${themeName}"][data-mode="light"]`,
+    [`${themeName}Dark`]: `[data-theme="${themeName}"][data-mode="dark"] &, [data-mode="dark"] [data-theme="${themeName}"]:not([data-mode="light"]) &, [data-theme="${themeName}"] [data-mode="dark"]:not([data-theme]) &, &[data-theme="${themeName}"][data-mode="dark"]`
+  };
+}
 
 export const conditions: NonNullable<Preset["conditions"]> = defineConditions({
   extend: {
-    light: '[data-theme="light"] &, &[data-theme="light"]',
-    dark: '[data-theme="dark"] &, &[data-theme="dark"]',
-    ocean: '[data-theme="ocean"] &, &[data-theme="ocean"]',
+    light:
+      '[data-mode="light"] &, &[data-mode="light"], [data-theme="light"] &, &[data-theme="light"]',
+    dark: '[data-mode="dark"] &, &[data-mode="dark"], [data-theme="dark"] &, &[data-theme="dark"]',
     hover: "&:is(:hover, [data-hover])",
     focus: "&:is(:focus, [data-focus])",
     focusVisible: "&:is(:focus-visible, [data-focus-visible])",

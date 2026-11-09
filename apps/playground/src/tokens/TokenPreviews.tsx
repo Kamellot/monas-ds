@@ -9,13 +9,13 @@ import {
   fontWeights,
   letterSpacings,
   lineHeights,
+  oceanColors,
   opacity,
   radii,
   semanticColors,
   shadows,
   sizes,
   spacing,
-  themes,
   zIndex
 } from "@monas/preset";
 import { flatten, flattenSemantic, resolveColorAlias } from "./flatten";
@@ -402,15 +402,15 @@ function SemanticSwatch({ alias, resolved }: { alias: string; resolved: string }
   );
 }
 
-function SemanticColors() {
-  const entries: SemanticTokenEntry[] = flattenSemantic(semanticColors);
+function SemanticColorTable({ title, group }: { title: string; group: object }) {
+  const entries: SemanticTokenEntry[] = flattenSemantic(group);
   const primitiveColors = flatten(colors);
   return (
-    <Section title="semanticTokens.colors" count={entries.length}>
+    <Section title={title} count={entries.length}>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "160px 1fr 1fr 1fr",
+          gridTemplateColumns: "220px 1fr 1fr",
           gap: 12,
           padding: "8px 0",
           borderBottom: `2px solid ${ui.border}`,
@@ -422,7 +422,6 @@ function SemanticColors() {
         <div>Token</div>
         <div>_light (base)</div>
         <div>_dark</div>
-        <div>_ocean</div>
       </div>
       {entries.map((entry) => (
         <div
@@ -430,7 +429,7 @@ function SemanticColors() {
           title={entry.description}
           style={{
             display: "grid",
-            gridTemplateColumns: "160px 1fr 1fr 1fr",
+            gridTemplateColumns: "220px 1fr 1fr",
             alignItems: "center",
             gap: 12,
             padding: "10px 0",
@@ -449,34 +448,38 @@ function SemanticColors() {
             alias={entry.conditions._dark}
             resolved={resolveColorAlias(entry.conditions._dark, primitiveColors)}
           />
-          <SemanticSwatch
-            alias={entry.conditions._ocean}
-            resolved={resolveColorAlias(entry.conditions._ocean, primitiveColors)}
-          />
         </div>
       ))}
     </Section>
   );
 }
 
+const SCOPED_PREVIEWS = [
+  { label: "Default Light", theme: "default", mode: "light" },
+  { label: "Default Dark", theme: "default", mode: "dark" },
+  { label: "Ocean Light", theme: "ocean", mode: "light" },
+  { label: "Ocean Dark", theme: "ocean", mode: "dark" }
+] as const;
+
 function ThemeScopingPreview() {
   return (
-    <Section title="Multi-Theme Nested Scoping (data-theme)" count={themes.length}>
+    <Section title="Multi-Theme & Mode Nested Scoping" count={SCOPED_PREVIEWS.length}>
       <p style={{ margin: "0 0 16px", color: ui.muted, fontSize: 14 }}>
-        Each card scopes semantic tokens locally via <code>data-theme</code>, independent of the
-        active global theme.
+        Each card scopes semantic tokens locally via <code>data-theme</code> and{" "}
+        <code>data-mode</code>, independent of the active global theme and mode.
       </p>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
           gap: 16
         }}
       >
-        {themes.map((theme) => (
+        {SCOPED_PREVIEWS.map(({ label, theme, mode }) => (
           <div
-            key={theme}
+            key={label}
             data-theme={theme}
+            data-mode={mode}
             style={{
               background: "var(--colors-bg-surface)",
               color: "var(--colors-text)",
@@ -490,21 +493,22 @@ function ThemeScopingPreview() {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                gap: 8,
                 marginBottom: 12
               }}
             >
-              <strong style={{ fontSize: 16 }}>Scope: {theme}</strong>
+              <strong style={{ fontSize: 15 }}>{label}</strong>
               <code
                 style={{
                   fontFamily: ui.mono,
-                  fontSize: 11,
+                  fontSize: 10,
                   padding: "2px 8px",
                   borderRadius: 999,
                   background: "var(--colors-bg-subtle)",
                   color: "var(--colors-text-muted)"
                 }}
               >
-                data-theme=&quot;{theme}&quot;
+                {theme} / {mode}
               </code>
             </div>
             <p style={{ margin: "0 0 16px", fontSize: 13, color: "var(--colors-text-muted)" }}>
@@ -561,7 +565,8 @@ export function TokenPreviews() {
   return (
     <>
       <ThemeScopingPreview />
-      <SemanticColors />
+      <SemanticColorTable title="semanticTokens.colors (Base Light/Dark)" group={semanticColors} />
+      <SemanticColorTable title="oceanTheme.colors (Optional CLI Theme)" group={oceanColors} />
       <Colors />
       <Fonts />
       <FontSizes />

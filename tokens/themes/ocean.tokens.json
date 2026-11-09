@@ -1,0 +1,503 @@
+{
+  "$schema": "../dtcg.schema.json",
+  "$description": "Monas Design System Optional Theme: Ocean (Light & Dark)",
+  "$extensions": {
+    "com.monas": {
+      "tier": "semantic"
+    }
+  },
+  "colors": {
+    "$type": "color",
+    "$description": "Ocean theme semantic color tokens with light and dark mode variants",
+    "bg": {
+      "canvas": {
+        "$value": "{colors.cyan.50}",
+        "$description": "Ocean page canvas background surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.50}",
+              "_light": "{colors.cyan.50}",
+              "_dark": "{colors.cyan.950}"
+            }
+          }
+        }
+      },
+      "surface": {
+        "$value": "{colors.white}",
+        "$description": "Ocean elevated card and container surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.white}",
+              "_light": "{colors.white}",
+              "_dark": "{colors.cyan.900}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.cyan.100}",
+        "$description": "Ocean subtle secondary container background",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.100}",
+              "_light": "{colors.cyan.100}",
+              "_dark": "{colors.cyan.800}"
+            }
+          }
+        }
+      },
+      "muted": {
+        "$value": "{colors.cyan.200}",
+        "$description": "Ocean muted interactive or well surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.200}",
+              "_light": "{colors.cyan.200}",
+              "_dark": "{colors.cyan.700}"
+            }
+          }
+        }
+      },
+      "inverse": {
+        "$value": "{colors.cyan.950}",
+        "$description": "Ocean high-contrast inverse surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.950}",
+              "_light": "{colors.cyan.950}",
+              "_dark": "{colors.cyan.50}"
+            }
+          }
+        }
+      }
+    },
+    "text": {
+      "DEFAULT": {
+        "$value": "{colors.cyan.950}",
+        "$description": "Ocean primary body and heading text color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.950}",
+              "_light": "{colors.cyan.950}",
+              "_dark": "{colors.cyan.50}"
+            }
+          }
+        }
+      },
+      "muted": {
+        "$value": "{colors.cyan.700}",
+        "$description": "Ocean secondary supporting text color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.700}",
+              "_light": "{colors.cyan.700}",
+              "_dark": "{colors.cyan.200}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.cyan.500}",
+        "$description": "Ocean placeholder and de-emphasized text color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.500}",
+              "_light": "{colors.cyan.500}",
+              "_dark": "{colors.cyan.400}"
+            }
+          }
+        }
+      },
+      "inverse": {
+        "$value": "{colors.white}",
+        "$description": "Ocean foreground text on inverse surfaces",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.white}",
+              "_light": "{colors.white}",
+              "_dark": "{colors.cyan.950}"
+            }
+          }
+        }
+      }
+    },
+    "primary": {
+      "DEFAULT": {
+        "$value": "{colors.cyan.600}",
+        "$description": "Ocean primary brand interactive color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.600}",
+              "_light": "{colors.cyan.600}",
+              "_dark": "{colors.cyan.500}"
+            }
+          }
+        }
+      },
+      "hover": {
+        "$value": "{colors.cyan.700}",
+        "$description": "Ocean hovered primary interactive color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.700}",
+              "_light": "{colors.cyan.700}",
+              "_dark": "{colors.cyan.400}"
+            }
+          }
+        }
+      },
+      "active": {
+        "$value": "{colors.cyan.800}",
+        "$description": "Ocean pressed primary interactive color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.800}",
+              "_light": "{colors.cyan.800}",
+              "_dark": "{colors.cyan.600}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.cyan.100}",
+        "$description": "Ocean soft primary tint surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.100}",
+              "_light": "{colors.cyan.100}",
+              "_dark": "{colors.cyan.900}"
+            }
+          }
+        }
+      }
+    },
+    "onPrimary": {
+      "DEFAULT": {
+        "$value": "{colors.white}",
+        "$description": "Ocean text and icon color on primary backgrounds",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.white}",
+              "_light": "{colors.white}",
+              "_dark": "{colors.cyan.950}"
+            }
+          }
+        }
+      }
+    },
+    "secondary": {
+      "DEFAULT": {
+        "$value": "{colors.cyan.100}",
+        "$description": "Ocean secondary interactive surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.100}",
+              "_light": "{colors.cyan.100}",
+              "_dark": "{colors.cyan.800}"
+            }
+          }
+        }
+      },
+      "hover": {
+        "$value": "{colors.cyan.200}",
+        "$description": "Ocean hovered secondary interactive surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.200}",
+              "_light": "{colors.cyan.200}",
+              "_dark": "{colors.cyan.700}"
+            }
+          }
+        }
+      },
+      "active": {
+        "$value": "{colors.cyan.300}",
+        "$description": "Ocean pressed secondary interactive surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.300}",
+              "_light": "{colors.cyan.300}",
+              "_dark": "{colors.cyan.600}"
+            }
+          }
+        }
+      }
+    },
+    "onSecondary": {
+      "DEFAULT": {
+        "$value": "{colors.cyan.950}",
+        "$description": "Ocean text and icon color on secondary backgrounds",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.950}",
+              "_light": "{colors.cyan.950}",
+              "_dark": "{colors.cyan.50}"
+            }
+          }
+        }
+      }
+    },
+    "border": {
+      "DEFAULT": {
+        "$value": "{colors.cyan.200}",
+        "$description": "Ocean default container and control border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.200}",
+              "_light": "{colors.cyan.200}",
+              "_dark": "{colors.cyan.800}"
+            }
+          }
+        }
+      },
+      "muted": {
+        "$value": "{colors.cyan.100}",
+        "$description": "Ocean subtle divider border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.100}",
+              "_light": "{colors.cyan.100}",
+              "_dark": "{colors.cyan.900}"
+            }
+          }
+        }
+      },
+      "strong": {
+        "$value": "{colors.cyan.300}",
+        "$description": "Ocean emphasized input and interactive border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.300}",
+              "_light": "{colors.cyan.300}",
+              "_dark": "{colors.cyan.700}"
+            }
+          }
+        }
+      },
+      "focus": {
+        "$value": "{colors.cyan.600}",
+        "$description": "Ocean keyboard focus ring indicator color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.cyan.600}",
+              "_light": "{colors.cyan.600}",
+              "_dark": "{colors.cyan.400}"
+            }
+          }
+        }
+      }
+    },
+    "success": {
+      "DEFAULT": {
+        "$value": "{colors.green.600}",
+        "$description": "Ocean primary success status color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.green.600}",
+              "_light": "{colors.green.600}",
+              "_dark": "{colors.green.400}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.green.50}",
+        "$description": "Ocean subtle success alert surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.green.50}",
+              "_light": "{colors.green.50}",
+              "_dark": "{colors.green.950}"
+            }
+          }
+        }
+      },
+      "text": {
+        "$value": "{colors.green.700}",
+        "$description": "Ocean success status foreground text",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.green.700}",
+              "_light": "{colors.green.700}",
+              "_dark": "{colors.green.300}"
+            }
+          }
+        }
+      },
+      "border": {
+        "$value": "{colors.green.200}",
+        "$description": "Ocean success status border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.green.200}",
+              "_light": "{colors.green.200}",
+              "_dark": "{colors.green.800}"
+            }
+          }
+        }
+      }
+    },
+    "warning": {
+      "DEFAULT": {
+        "$value": "{colors.amber.500}",
+        "$description": "Ocean primary warning status color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.amber.500}",
+              "_light": "{colors.amber.500}",
+              "_dark": "{colors.amber.400}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.amber.50}",
+        "$description": "Ocean subtle warning alert surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.amber.50}",
+              "_light": "{colors.amber.50}",
+              "_dark": "{colors.amber.950}"
+            }
+          }
+        }
+      },
+      "text": {
+        "$value": "{colors.amber.800}",
+        "$description": "Ocean warning status foreground text",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.amber.800}",
+              "_light": "{colors.amber.800}",
+              "_dark": "{colors.amber.300}"
+            }
+          }
+        }
+      },
+      "border": {
+        "$value": "{colors.amber.200}",
+        "$description": "Ocean warning status border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.amber.200}",
+              "_light": "{colors.amber.200}",
+              "_dark": "{colors.amber.800}"
+            }
+          }
+        }
+      }
+    },
+    "danger": {
+      "DEFAULT": {
+        "$value": "{colors.red.600}",
+        "$description": "Ocean primary danger and error color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.600}",
+              "_light": "{colors.red.600}",
+              "_dark": "{colors.red.500}"
+            }
+          }
+        }
+      },
+      "hover": {
+        "$value": "{colors.red.700}",
+        "$description": "Ocean hovered destructive interactive color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.700}",
+              "_light": "{colors.red.700}",
+              "_dark": "{colors.red.400}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.red.50}",
+        "$description": "Ocean subtle danger alert surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.50}",
+              "_light": "{colors.red.50}",
+              "_dark": "{colors.red.950}"
+            }
+          }
+        }
+      },
+      "text": {
+        "$value": "{colors.red.700}",
+        "$description": "Ocean danger status foreground text",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.700}",
+              "_light": "{colors.red.700}",
+              "_dark": "{colors.red.300}"
+            }
+          }
+        }
+      },
+      "border": {
+        "$value": "{colors.red.200}",
+        "$description": "Ocean danger status border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.200}",
+              "_light": "{colors.red.200}",
+              "_dark": "{colors.red.800}"
+            }
+          }
+        }
+      }
+    },
+    "onDanger": {
+      "DEFAULT": {
+        "$value": "{colors.white}",
+        "$description": "Ocean text and icon color on danger backgrounds",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.white}",
+              "_light": "{colors.white}",
+              "_dark": "{colors.white}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

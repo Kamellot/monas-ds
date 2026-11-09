@@ -1,5 +1,9 @@
 :root,
-[data-theme="light"] {
+:where([data-mode="light"], [data-theme="light"]),
+:where(
+  [data-theme="default"][data-mode="light"],
+  [data-mode="light"] [data-theme="default"]:not([data-mode="dark"])
+) {
   --colors-bg-canvas: #f9fafb;
   --colors-bg-surface: #ffffff;
   --colors-bg-subtle: #f3f4f6;
@@ -38,7 +42,11 @@
   --colors-on-danger: #ffffff;
 }
 
-[data-theme="dark"] {
+:where([data-mode="dark"], [data-theme="dark"]),
+:where(
+  [data-theme="default"][data-mode="dark"],
+  [data-mode="dark"] [data-theme="default"]:not([data-mode="light"])
+) {
   --colors-bg-canvas: #030712;
   --colors-bg-surface: #111827;
   --colors-bg-subtle: #1f2937;
@@ -77,7 +85,55 @@
   --colors-on-danger: #ffffff;
 }
 
-[data-theme="ocean"] {
+:where([data-theme="ocean"]),
+:where(
+  [data-theme="ocean"][data-mode="light"],
+  [data-mode="light"] [data-theme="ocean"]:not([data-mode="dark"]),
+  [data-theme="ocean"] [data-mode="light"]:not([data-theme])
+) {
+  --colors-bg-canvas: #ecfeff;
+  --colors-bg-surface: #ffffff;
+  --colors-bg-subtle: #cffafe;
+  --colors-bg-muted: #a5f3fc;
+  --colors-bg-inverse: #083344;
+  --colors-text: #083344;
+  --colors-text-muted: #0e7490;
+  --colors-text-subtle: #06b6d4;
+  --colors-text-inverse: #ffffff;
+  --colors-primary: #0891b2;
+  --colors-primary-hover: #0e7490;
+  --colors-primary-active: #155e75;
+  --colors-primary-subtle: #cffafe;
+  --colors-on-primary: #ffffff;
+  --colors-secondary: #cffafe;
+  --colors-secondary-hover: #a5f3fc;
+  --colors-secondary-active: #67e8f9;
+  --colors-on-secondary: #083344;
+  --colors-border: #a5f3fc;
+  --colors-border-muted: #cffafe;
+  --colors-border-strong: #67e8f9;
+  --colors-border-focus: #0891b2;
+  --colors-success: #16a34a;
+  --colors-success-subtle: #f0fdf4;
+  --colors-success-text: #15803d;
+  --colors-success-border: #bbf7d0;
+  --colors-warning: #f59e0b;
+  --colors-warning-subtle: #fffbeb;
+  --colors-warning-text: #92400e;
+  --colors-warning-border: #fde68a;
+  --colors-danger: #dc2626;
+  --colors-danger-hover: #b91c1c;
+  --colors-danger-subtle: #fef2f2;
+  --colors-danger-text: #b91c1c;
+  --colors-danger-border: #fecaca;
+  --colors-on-danger: #ffffff;
+}
+
+:where(
+  [data-theme="ocean"][data-mode="dark"],
+  [data-mode="dark"] [data-theme="ocean"]:not([data-mode="light"]),
+  [data-theme="ocean"] [data-mode="dark"]:not([data-theme])
+) {
   --colors-bg-canvas: #083344;
   --colors-bg-surface: #164e63;
   --colors-bg-subtle: #155e75;

@@ -11,7 +11,6 @@ export interface SemanticTokenEntry {
     base: string;
     _light: string;
     _dark: string;
-    _ocean: string;
   };
 }
 
@@ -25,7 +24,6 @@ interface SemanticLeaf {
     base: string;
     _light: string;
     _dark: string;
-    _ocean: string;
   };
   description?: string;
 }
