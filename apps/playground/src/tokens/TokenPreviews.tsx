@@ -11,17 +11,19 @@ import {
   lineHeights,
   opacity,
   radii,
+  semanticColors,
   shadows,
   sizes,
   spacing,
+  themes,
   zIndex
 } from "@monas/preset";
-import { flatten } from "./flatten";
-import type { TokenEntry } from "./flatten";
+import { flatten, flattenSemantic, resolveColorAlias } from "./flatten";
+import type { SemanticTokenEntry, TokenEntry } from "./flatten";
 
 const ui = {
-  muted: "#6b7280",
-  border: "#e5e7eb",
+  muted: "var(--colors-text-muted)",
+  border: "var(--colors-border)",
   mono: "ui-monospace, SFMono-Regular, Menlo, monospace"
 };
 
@@ -379,9 +381,187 @@ function Opacity() {
   );
 }
 
+function SemanticSwatch({ alias, resolved }: { alias: string; resolved: string }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      <div
+        style={{
+          width: 28,
+          height: 28,
+          borderRadius: 6,
+          background: resolved,
+          border: `1px solid ${ui.border}`,
+          flexShrink: 0
+        }}
+      />
+      <div style={{ fontFamily: ui.mono, fontSize: 11 }}>
+        <div>{alias}</div>
+        <div style={{ color: ui.muted, fontSize: 10 }}>{resolved}</div>
+      </div>
+    </div>
+  );
+}
+
+function SemanticColors() {
+  const entries: SemanticTokenEntry[] = flattenSemantic(semanticColors);
+  const primitiveColors = flatten(colors);
+  return (
+    <Section title="semanticTokens.colors" count={entries.length}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "160px 1fr 1fr 1fr",
+          gap: 12,
+          padding: "8px 0",
+          borderBottom: `2px solid ${ui.border}`,
+          fontFamily: ui.mono,
+          fontSize: 12,
+          fontWeight: 600
+        }}
+      >
+        <div>Token</div>
+        <div>_light (base)</div>
+        <div>_dark</div>
+        <div>_ocean</div>
+      </div>
+      {entries.map((entry) => (
+        <div
+          key={entry.name}
+          title={entry.description}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "160px 1fr 1fr 1fr",
+            alignItems: "center",
+            gap: 12,
+            padding: "10px 0",
+            borderBottom: `1px solid ${ui.border}`
+          }}
+        >
+          <div style={{ fontFamily: ui.mono, fontSize: 12 }}>
+            <div>colors.{entry.name}</div>
+            <div style={{ color: ui.muted, fontSize: 11 }}>{entry.description}</div>
+          </div>
+          <SemanticSwatch
+            alias={entry.conditions._light}
+            resolved={resolveColorAlias(entry.conditions._light, primitiveColors)}
+          />
+          <SemanticSwatch
+            alias={entry.conditions._dark}
+            resolved={resolveColorAlias(entry.conditions._dark, primitiveColors)}
+          />
+          <SemanticSwatch
+            alias={entry.conditions._ocean}
+            resolved={resolveColorAlias(entry.conditions._ocean, primitiveColors)}
+          />
+        </div>
+      ))}
+    </Section>
+  );
+}
+
+function ThemeScopingPreview() {
+  return (
+    <Section title="Multi-Theme Nested Scoping (data-theme)" count={themes.length}>
+      <p style={{ margin: "0 0 16px", color: ui.muted, fontSize: 14 }}>
+        Each card scopes semantic tokens locally via <code>data-theme</code>, independent of the
+        active global theme.
+      </p>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+          gap: 16
+        }}
+      >
+        {themes.map((theme) => (
+          <div
+            key={theme}
+            data-theme={theme}
+            style={{
+              background: "var(--colors-bg-surface)",
+              color: "var(--colors-text)",
+              border: "1px solid var(--colors-border)",
+              borderRadius: 12,
+              padding: 20
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: 12
+              }}
+            >
+              <strong style={{ fontSize: 16 }}>Scope: {theme}</strong>
+              <code
+                style={{
+                  fontFamily: ui.mono,
+                  fontSize: 11,
+                  padding: "2px 8px",
+                  borderRadius: 999,
+                  background: "var(--colors-bg-subtle)",
+                  color: "var(--colors-text-muted)"
+                }}
+              >
+                data-theme=&quot;{theme}&quot;
+              </code>
+            </div>
+            <p style={{ margin: "0 0 16px", fontSize: 13, color: "var(--colors-text-muted)" }}>
+              Surface, text, border, and interactive roles resolve automatically within this
+              subtree.
+            </p>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <span
+                style={{
+                  padding: "6px 12px",
+                  borderRadius: 6,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  background: "var(--colors-primary)",
+                  color: "var(--colors-on-primary)"
+                }}
+              >
+                Primary
+              </span>
+              <span
+                style={{
+                  padding: "6px 12px",
+                  borderRadius: 6,
+                  fontSize: 12,
+                  fontWeight: 500,
+                  background: "var(--colors-secondary)",
+                  color: "var(--colors-on-secondary)",
+                  border: "1px solid var(--colors-border-strong)"
+                }}
+              >
+                Secondary
+              </span>
+              <span
+                style={{
+                  padding: "6px 12px",
+                  borderRadius: 6,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  background: "var(--colors-danger)",
+                  color: "var(--colors-on-danger)"
+                }}
+              >
+                Danger
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 export function TokenPreviews() {
   return (
     <>
+      <ThemeScopingPreview />
+      <SemanticColors />
       <Colors />
       <Fonts />
       <FontSizes />

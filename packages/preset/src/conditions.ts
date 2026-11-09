@@ -1,8 +1,14 @@
 import { defineConditions } from "@pandacss/dev";
 import type { Preset } from "@pandacss/dev";
 
+export const themes = ["light", "dark", "ocean"] as const;
+export type ThemeName = (typeof themes)[number];
+
 export const conditions: NonNullable<Preset["conditions"]> = defineConditions({
   extend: {
+    light: '[data-theme="light"] &, &[data-theme="light"]',
+    dark: '[data-theme="dark"] &, &[data-theme="dark"]',
+    ocean: '[data-theme="ocean"] &, &[data-theme="ocean"]',
     hover: "&:is(:hover, [data-hover])",
     focus: "&:is(:focus, [data-focus])",
     focusVisible: "&:is(:focus-visible, [data-focus-visible])",

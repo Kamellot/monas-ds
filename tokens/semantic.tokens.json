@@ -1,0 +1,550 @@
+{
+  "$schema": "./dtcg.schema.json",
+  "$description": "Monas Design System Tier 2 Multi-Theme Semantic Tokens",
+  "$extensions": {
+    "com.monas": {
+      "tier": "semantic"
+    }
+  },
+  "colors": {
+    "$type": "color",
+    "$description": "Role-based semantic color tokens mapped to primitive palettes across light, dark, and ocean themes",
+    "bg": {
+      "$description": "Background surface hierarchy tokens",
+      "canvas": {
+        "$value": "{colors.gray.50}",
+        "$description": "Default page canvas background surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.50}",
+              "_light": "{colors.gray.50}",
+              "_dark": "{colors.gray.950}",
+              "_ocean": "{colors.cyan.950}"
+            }
+          }
+        }
+      },
+      "surface": {
+        "$value": "{colors.white}",
+        "$description": "Elevated card and container surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.white}",
+              "_light": "{colors.white}",
+              "_dark": "{colors.gray.900}",
+              "_ocean": "{colors.cyan.900}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.gray.100}",
+        "$description": "Subtle secondary container background",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.100}",
+              "_light": "{colors.gray.100}",
+              "_dark": "{colors.gray.800}",
+              "_ocean": "{colors.cyan.800}"
+            }
+          }
+        }
+      },
+      "muted": {
+        "$value": "{colors.gray.200}",
+        "$description": "Muted interactive or well surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.200}",
+              "_light": "{colors.gray.200}",
+              "_dark": "{colors.gray.700}",
+              "_ocean": "{colors.cyan.700}"
+            }
+          }
+        }
+      },
+      "inverse": {
+        "$value": "{colors.gray.900}",
+        "$description": "High-contrast inverse surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.900}",
+              "_light": "{colors.gray.900}",
+              "_dark": "{colors.gray.50}",
+              "_ocean": "{colors.cyan.50}"
+            }
+          }
+        }
+      }
+    },
+    "text": {
+      "$description": "Foreground typography and icon color tokens",
+      "DEFAULT": {
+        "$value": "{colors.gray.900}",
+        "$description": "Primary body and heading text color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.900}",
+              "_light": "{colors.gray.900}",
+              "_dark": "{colors.gray.50}",
+              "_ocean": "{colors.cyan.50}"
+            }
+          }
+        }
+      },
+      "muted": {
+        "$value": "{colors.gray.600}",
+        "$description": "Secondary supporting text color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.600}",
+              "_light": "{colors.gray.600}",
+              "_dark": "{colors.gray.400}",
+              "_ocean": "{colors.cyan.200}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.gray.400}",
+        "$description": "Placeholder and de-emphasized text color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.400}",
+              "_light": "{colors.gray.400}",
+              "_dark": "{colors.gray.500}",
+              "_ocean": "{colors.cyan.400}"
+            }
+          }
+        }
+      },
+      "inverse": {
+        "$value": "{colors.white}",
+        "$description": "Foreground text on inverse surfaces",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.white}",
+              "_light": "{colors.white}",
+              "_dark": "{colors.gray.900}",
+              "_ocean": "{colors.cyan.950}"
+            }
+          }
+        }
+      }
+    },
+    "primary": {
+      "$description": "Brand primary interactive color tokens",
+      "DEFAULT": {
+        "$value": "{colors.blue.600}",
+        "$description": "Default primary brand interactive color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.blue.600}",
+              "_light": "{colors.blue.600}",
+              "_dark": "{colors.blue.500}",
+              "_ocean": "{colors.cyan.500}"
+            }
+          }
+        }
+      },
+      "hover": {
+        "$value": "{colors.blue.700}",
+        "$description": "Hovered primary brand interactive color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.blue.700}",
+              "_light": "{colors.blue.700}",
+              "_dark": "{colors.blue.400}",
+              "_ocean": "{colors.cyan.400}"
+            }
+          }
+        }
+      },
+      "active": {
+        "$value": "{colors.blue.800}",
+        "$description": "Pressed primary brand interactive color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.blue.800}",
+              "_light": "{colors.blue.800}",
+              "_dark": "{colors.blue.600}",
+              "_ocean": "{colors.cyan.600}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.blue.50}",
+        "$description": "Soft primary brand tint surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.blue.50}",
+              "_light": "{colors.blue.50}",
+              "_dark": "{colors.blue.950}",
+              "_ocean": "{colors.cyan.900}"
+            }
+          }
+        }
+      }
+    },
+    "onPrimary": {
+      "$description": "Foreground content color on primary brand surfaces",
+      "DEFAULT": {
+        "$value": "{colors.white}",
+        "$description": "Default text and icon color on primary backgrounds",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.white}",
+              "_light": "{colors.white}",
+              "_dark": "{colors.white}",
+              "_ocean": "{colors.cyan.950}"
+            }
+          }
+        }
+      }
+    },
+    "secondary": {
+      "$description": "Secondary neutral interactive color tokens",
+      "DEFAULT": {
+        "$value": "{colors.gray.100}",
+        "$description": "Default secondary interactive surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.100}",
+              "_light": "{colors.gray.100}",
+              "_dark": "{colors.gray.800}",
+              "_ocean": "{colors.cyan.800}"
+            }
+          }
+        }
+      },
+      "hover": {
+        "$value": "{colors.gray.200}",
+        "$description": "Hovered secondary interactive surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.200}",
+              "_light": "{colors.gray.200}",
+              "_dark": "{colors.gray.700}",
+              "_ocean": "{colors.cyan.700}"
+            }
+          }
+        }
+      },
+      "active": {
+        "$value": "{colors.gray.300}",
+        "$description": "Pressed secondary interactive surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.300}",
+              "_light": "{colors.gray.300}",
+              "_dark": "{colors.gray.600}",
+              "_ocean": "{colors.cyan.600}"
+            }
+          }
+        }
+      }
+    },
+    "onSecondary": {
+      "$description": "Foreground content color on secondary surfaces",
+      "DEFAULT": {
+        "$value": "{colors.gray.900}",
+        "$description": "Default text and icon color on secondary backgrounds",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.900}",
+              "_light": "{colors.gray.900}",
+              "_dark": "{colors.gray.50}",
+              "_ocean": "{colors.cyan.50}"
+            }
+          }
+        }
+      }
+    },
+    "border": {
+      "$description": "Structural divider, control border, and focus ring tokens",
+      "DEFAULT": {
+        "$value": "{colors.gray.200}",
+        "$description": "Default container and control border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.200}",
+              "_light": "{colors.gray.200}",
+              "_dark": "{colors.gray.800}",
+              "_ocean": "{colors.cyan.800}"
+            }
+          }
+        }
+      },
+      "muted": {
+        "$value": "{colors.gray.100}",
+        "$description": "Subtle divider border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.100}",
+              "_light": "{colors.gray.100}",
+              "_dark": "{colors.gray.900}",
+              "_ocean": "{colors.cyan.900}"
+            }
+          }
+        }
+      },
+      "strong": {
+        "$value": "{colors.gray.300}",
+        "$description": "Emphasized input and interactive border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.gray.300}",
+              "_light": "{colors.gray.300}",
+              "_dark": "{colors.gray.700}",
+              "_ocean": "{colors.cyan.700}"
+            }
+          }
+        }
+      },
+      "focus": {
+        "$value": "{colors.blue.600}",
+        "$description": "Keyboard focus ring indicator color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.blue.600}",
+              "_light": "{colors.blue.600}",
+              "_dark": "{colors.blue.400}",
+              "_ocean": "{colors.cyan.400}"
+            }
+          }
+        }
+      }
+    },
+    "success": {
+      "$description": "Positive status and validation color tokens",
+      "DEFAULT": {
+        "$value": "{colors.green.600}",
+        "$description": "Primary success status color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.green.600}",
+              "_light": "{colors.green.600}",
+              "_dark": "{colors.green.500}",
+              "_ocean": "{colors.green.400}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.green.50}",
+        "$description": "Subtle success alert surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.green.50}",
+              "_light": "{colors.green.50}",
+              "_dark": "{colors.green.950}",
+              "_ocean": "{colors.green.950}"
+            }
+          }
+        }
+      },
+      "text": {
+        "$value": "{colors.green.700}",
+        "$description": "Success status foreground text",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.green.700}",
+              "_light": "{colors.green.700}",
+              "_dark": "{colors.green.300}",
+              "_ocean": "{colors.green.300}"
+            }
+          }
+        }
+      },
+      "border": {
+        "$value": "{colors.green.200}",
+        "$description": "Success status border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.green.200}",
+              "_light": "{colors.green.200}",
+              "_dark": "{colors.green.800}",
+              "_ocean": "{colors.green.800}"
+            }
+          }
+        }
+      }
+    },
+    "warning": {
+      "$description": "Caution and warning status color tokens",
+      "DEFAULT": {
+        "$value": "{colors.amber.500}",
+        "$description": "Primary warning status color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.amber.500}",
+              "_light": "{colors.amber.500}",
+              "_dark": "{colors.amber.400}",
+              "_ocean": "{colors.amber.400}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.amber.50}",
+        "$description": "Subtle warning alert surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.amber.50}",
+              "_light": "{colors.amber.50}",
+              "_dark": "{colors.amber.950}",
+              "_ocean": "{colors.amber.950}"
+            }
+          }
+        }
+      },
+      "text": {
+        "$value": "{colors.amber.800}",
+        "$description": "Warning status foreground text",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.amber.800}",
+              "_light": "{colors.amber.800}",
+              "_dark": "{colors.amber.300}",
+              "_ocean": "{colors.amber.300}"
+            }
+          }
+        }
+      },
+      "border": {
+        "$value": "{colors.amber.200}",
+        "$description": "Warning status border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.amber.200}",
+              "_light": "{colors.amber.200}",
+              "_dark": "{colors.amber.800}",
+              "_ocean": "{colors.amber.800}"
+            }
+          }
+        }
+      }
+    },
+    "danger": {
+      "$description": "Destructive action and error validation color tokens",
+      "DEFAULT": {
+        "$value": "{colors.red.600}",
+        "$description": "Primary danger and error color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.600}",
+              "_light": "{colors.red.600}",
+              "_dark": "{colors.red.500}",
+              "_ocean": "{colors.red.500}"
+            }
+          }
+        }
+      },
+      "hover": {
+        "$value": "{colors.red.700}",
+        "$description": "Hovered destructive interactive color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.700}",
+              "_light": "{colors.red.700}",
+              "_dark": "{colors.red.400}",
+              "_ocean": "{colors.red.400}"
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{colors.red.50}",
+        "$description": "Subtle danger alert surface",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.50}",
+              "_light": "{colors.red.50}",
+              "_dark": "{colors.red.950}",
+              "_ocean": "{colors.red.950}"
+            }
+          }
+        }
+      },
+      "text": {
+        "$value": "{colors.red.700}",
+        "$description": "Danger status foreground text",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.700}",
+              "_light": "{colors.red.700}",
+              "_dark": "{colors.red.300}",
+              "_ocean": "{colors.red.300}"
+            }
+          }
+        }
+      },
+      "border": {
+        "$value": "{colors.red.200}",
+        "$description": "Danger status border color",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.red.200}",
+              "_light": "{colors.red.200}",
+              "_dark": "{colors.red.800}",
+              "_ocean": "{colors.red.800}"
+            }
+          }
+        }
+      }
+    },
+    "onDanger": {
+      "$description": "Foreground content color on destructive danger surfaces",
+      "DEFAULT": {
+        "$value": "{colors.white}",
+        "$description": "Default text and icon color on danger backgrounds",
+        "$extensions": {
+          "com.monas": {
+            "conditions": {
+              "default": "{colors.white}",
+              "_light": "{colors.white}",
+              "_dark": "{colors.white}",
+              "_ocean": "{colors.white}"
+            }
+          }
+        }
+      }
+    }
+  }
+}
