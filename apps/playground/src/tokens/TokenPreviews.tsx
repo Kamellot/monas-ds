@@ -173,7 +173,16 @@ function LineHeights() {
       <Rows
         tokens={tokens}
         render={(token) => (
-          <p style={{ margin: 0, maxWidth: 480, lineHeight: token.value, background: "#eff6ff" }}>
+          <p
+            style={{
+              margin: 0,
+              maxWidth: 480,
+              lineHeight: token.value,
+              background: "var(--colors-primary-subtle)",
+              padding: "4px 8px",
+              borderRadius: 4
+            }}
+          >
             Design tokens are the single source of truth for every visual decision. Line height
             controls the vertical rhythm of multi-line text.
           </p>
@@ -209,7 +218,7 @@ function Bars({ title, group }: { title: string; group: object }) {
               width: token.value,
               maxWidth: "100%",
               height: 16,
-              background: "#2563eb",
+              background: "var(--colors-primary)",
               borderRadius: 2
             }}
           />
@@ -230,8 +239,8 @@ function Radii() {
             style={{
               width: 96,
               height: 56,
-              background: "#dbeafe",
-              border: "1px solid #2563eb",
+              background: "var(--colors-primary-subtle)",
+              border: "1px solid var(--colors-primary)",
               borderRadius: token.value
             }}
           />
@@ -253,7 +262,7 @@ function BorderWidths() {
               width: 96,
               height: 56,
               borderRadius: 6,
-              border: `${token.value} solid #111827`
+              border: `${token.value} solid var(--colors-text)`
             }}
           />
         )}
@@ -274,7 +283,8 @@ function Shadows() {
               width: 120,
               height: 64,
               borderRadius: 8,
-              background: "#fff",
+              background: "var(--colors-bg-surface)",
+              border: "1px solid var(--colors-border)",
               boxShadow: token.value
             }}
           />
@@ -293,7 +303,7 @@ function Durations() {
         {tokens.map((token) => (
           <div key={token.name} className="motion-row" style={row}>
             <Label token={token} />
-            <div style={{ background: "#f3f4f6", borderRadius: 999, height: 16 }}>
+            <div style={{ background: "var(--colors-bg-subtle)", borderRadius: 999, height: 16 }}>
               <div className="motion-dot" style={{ transitionDuration: token.value }} />
             </div>
           </div>
@@ -314,7 +324,7 @@ function Easings() {
         {tokens.map((token) => (
           <div key={token.name} className="motion-row" style={row}>
             <Label token={token} />
-            <div style={{ background: "#f3f4f6", borderRadius: 999, height: 16 }}>
+            <div style={{ background: "var(--colors-bg-subtle)", borderRadius: 999, height: 16 }}>
               <div
                 className="motion-dot"
                 style={{ transitionDuration: "500ms", transitionTimingFunction: token.value }}
@@ -344,8 +354,8 @@ function ZIndex() {
               padding: 8,
               boxSizing: "border-box",
               borderRadius: 6,
-              background: "#fff",
-              border: "1px solid #111827",
+              background: "var(--colors-bg-surface)",
+              border: "1px solid var(--colors-border-strong)",
               fontFamily: ui.mono,
               fontSize: 11,
               zIndex: Number(token.value)
@@ -371,7 +381,7 @@ function Opacity() {
               width: 160,
               height: 32,
               borderRadius: 6,
-              background: "#2563eb",
+              background: "var(--colors-primary)",
               opacity: Number(token.value)
             }}
           />

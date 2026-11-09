@@ -1,4 +1,4 @@
-:root,
+:where(:root, :host),
 :where([data-mode="light"], [data-theme="light"]),
 :where(
   [data-theme="default"][data-mode="light"],
